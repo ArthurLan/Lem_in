@@ -1,0 +1,49 @@
+42
+##start
+42_Com 0 9
+Pi_Relo 1 9
+libft 2 9
+Filit 3 9
+GNL 4 9
+Printf 5 9
+Push_s 6 7
+Filer 6 11
+lem_in 7 9
+C_Champ 9 11
+##end
+Corewar 9 9
+FdF 4 11
+Fractol 4 13
+Wolf3d 3 14
+RTv1 5 14
+RT 4 15
+Ft_ls 4 7
+minish 4 5
+21sh 4 3
+42sh 4 1
+C_Exam 1 13
+#cadet
+42_Com-Pi_Relo
+Pi_Relo-libft
+libft-Filit
+Filit-GNL
+# Branche algo
+GNL-Printf
+Printf-Push_s
+Printf-Filer
+Push_s-lem_in
+Filer-lem_in
+lem_in-Corewar
+Corewar-C_Champ
+#  Branche graph
+GNL-FdF
+FdF-Fractol
+Fractol-Wolf3d
+Fractol-RTv1
+RTv1-RT
+Wolf3d-RT
+# Branche sys
+GNL-Ft_ls
+Ft_ls-minish
+minish-21sh
+21sh-42sh
