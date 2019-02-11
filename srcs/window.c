@@ -6,7 +6,7 @@
 /*   By: alanter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 17:14:43 by alanter           #+#    #+#             */
-/*   Updated: 2018/10/25 21:31:29 by alanter          ###   ########.fr       */
+/*   Updated: 2018/10/26 13:46:01 by alanter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	rand_ground(t_mlx *mlx)
 	i = 0;
 	if (!(mlx->img.rand = ft_memalloc(sizeof(char) * 9999999)))
 		return (0);
-	while (i < 9999999)
+	while (i < 9999998)
 		mlx->img.rand[++i] = rand();
 	return (1);
 }
@@ -85,6 +85,8 @@ void		*window(t_info *info)
 
 	if (!(mlx = ft_memalloc(sizeof(t_mlx))))
 		return (NULL);
+	if (info)
+		;
 	mlx->info = info;
 	mlx->speed = 900000;
 	mlx->mlx_ptr = mlx_init();
@@ -101,5 +103,7 @@ void		*window(t_info *info)
 	draw_str(mlx);
 	mlx_key_hook(mlx->win, deal_key, mlx);
 	mlx_loop(mlx->mlx_ptr);
-	return (mlx->mlx_ptr);
+	ft_memdel((void**)&mlx->img.rand);
+	ft_memdel((void**)&mlx);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: afrangio <afrangio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/13 15:01:33 by afrangio          #+#    #+#             */
-/*   Updated: 2018/10/25 21:16:10 by alanter          ###   ########.fr       */
+/*   Updated: 2018/10/26 13:57:25 by alanter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	start_again(t_info *info)
 	}
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	t_info	*info;
 
@@ -56,7 +56,8 @@ int		main(void)
 	ft_search_links(info);
 	find_path(info, get_ending_room(info));
 	start_again(info);
-	window(info);
+	if (argc >= 2 && !(ft_strcmp(argv[1], "-v")))
+		window(info);
 	clean(info);
 	ft_strdel(&info->file);
 	free(info);

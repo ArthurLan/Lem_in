@@ -6,7 +6,7 @@
 /*   By: alanter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 08:58:39 by alanter           #+#    #+#             */
-/*   Updated: 2018/10/25 23:01:31 by alanter          ###   ########.fr       */
+/*   Updated: 2018/10/26 11:31:27 by alanter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ static void	scale(t_info *info)
 			info->ymax = tmp->y;
 		tmp = tmp->next;
 	}
-	if (info->xmax > 500 || info->ymax > 30
-			|| (info->xmax == 0 && info->ymax == 0))
+	if (info->xmax > 500 || info->ymax > 30)
 	{
 		ft_putstr("Error map for visual\n");
 		exit(0);
@@ -46,8 +45,14 @@ void		calc_coord(t_info *info)
 	t_room *tmp;
 
 	scale(info);
-	info->xmax = (WIN_W - WIN_W / 10) / (info->xmax - info->xmin);
-	info->ymax = (WIN_H - WIN_H / 4) / (info->ymax - info->ymin);
+	if (info->xmax - info->xmin != 0)
+		info->xmax = (WIN_W - WIN_W / 10) / (info->xmax - info->xmin);
+	else
+		info->xmax = (WIN_W - WIN_W / 10);
+	if (info->ymax - info->ymin != 0)
+		info->ymax = (WIN_H - WIN_H / 4) / (info->ymax - info->ymin);
+	else
+		info->ymax = (WIN_H - WIN_H / 4);
 	tmp = info->room;
 	while (tmp)
 	{

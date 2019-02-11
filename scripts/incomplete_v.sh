@@ -1,6 +1,6 @@
-for file in ../tests/good_tests/*
+for file in ../tests/incomplete_maze/*
 do
 	echo "\n\n<<<<<<<<<<<<<<<<<<<<<###################################################>>>>>>>>>>>>>>>>>>>>>\n\n"
 	echo "File : $file\n\n"
-	../lem_in < $file
+	../lem_in -v < $file
 done

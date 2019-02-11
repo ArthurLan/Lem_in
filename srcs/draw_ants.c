@@ -6,7 +6,7 @@
 /*   By: alanter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 22:23:48 by alanter           #+#    #+#             */
-/*   Updated: 2018/10/25 21:15:52 by alanter          ###   ########.fr       */
+/*   Updated: 2018/10/26 13:46:36 by alanter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,18 @@ static void	print_name(t_mlx *mlx, t_room *tmp, int c)
 	mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x, tmp->y - 2, c, tmp->name);
 }
 
+static void	print_ant(t_mlx *mlx, t_room *tmp)
+{
+	mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x + 15,
+			tmp->y + 18, 0x000000, "L");
+	mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x + 15,
+			tmp->y + 38, 0x000000, ">o{-{");
+}
+
 void		draw_ants(t_mlx *mlx, t_info *info)
 {
-	t_room *tmp;
+	t_room	*tmp;
+	char	*nb_ant;
 
 	tmp = info->room;
 	while (tmp)
@@ -61,17 +70,14 @@ void		draw_ants(t_mlx *mlx, t_info *info)
 		tmp->white = 0;
 		if (tmp->ant)
 		{
+			nb_ant = ft_itoa(tmp->ant);
 			mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x + 29,
-					tmp->y + 18, 0x000000, ft_itoa(tmp->ant));
+					tmp->y + 18, 0x000000, nb_ant);
 			if (tmp->start != 1 && tmp->end != 1)
-			{
-				mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x + 15,
-						tmp->y + 18, 0x000000, "L");
-				mlx_string_put(mlx->mlx_ptr, mlx->win, tmp->x + 15,
-						tmp->y + 38, 0x000000, ">o{-{");
-			}
+				print_ant(mlx, tmp);
 			tmp->white = 1;
 			print_name(mlx, tmp, 0xFFFFFF);
+			ft_memdel((void**)&nb_ant);
 		}
 		if (tmp->white == 0)
 			print_name(mlx, tmp, 0x000000);
