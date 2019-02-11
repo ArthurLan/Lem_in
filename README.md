@@ -1,6 +1,6 @@
 # Lem_in 
 
-<img width="100%" src="Lem_in_img.png"/>
+<img width="100%" src="lem_in_img.png"/>
 
 ## Pitch
 
@@ -13,7 +13,7 @@ Lem_in is a pedagogical project from 42 School which aims to introduce the stude
 - Speed
 - Script : run all maps (valid and invalid)
 
-<img align="center" src="https://gfycat.com/heartfeltsmoggygreyhounddog.gif" width ="100%" />
+<img align="center" src="https://thumbs.gfycat.com/HeartfeltSmoggyGreyhounddog-size_restricted.gif" width ="100%" />
 
 ## Things I have learned
 
